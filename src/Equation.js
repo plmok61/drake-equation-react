@@ -9,8 +9,9 @@ class Equation extends Component {
     super(props);
     this.state = {
       currentInput: 'rStar',
-      numCivs: null
+      numCivs: 70,
     };
+    this.calculateCivs = this.calculateCivs.bind(this);
   }
 
   onChangeInputFocus(currentInput) {
@@ -19,11 +20,19 @@ class Equation extends Component {
     });
   }
 
-  calculateCivs(rStar, fPlanets, nEarthLike, fLife, fIntelligent, rComm, L) {
-    var result = rStar * fPlanets * nEarthLike * fLife * fIntelligent * rComm * L;
-    this.setState({
-      numCivs: result
-    });
+  calculateCivs() {
+    var inputs = Array.from(document.getElementsByTagName('input'));
+    if (inputs.length !== 0) {
+      var values = inputs.map(function(i) {
+        return i.value;
+      })
+      var result = Math.round(values.reduce(function(result, i) {
+        return result * i;
+      }));  
+      this.setState({
+        numCivs: result
+      });
+    }
   }
 
   render() {
@@ -33,15 +42,16 @@ class Equation extends Component {
           <InfoBox />
         </div>
         <div>
-          <input id="rStar" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
-          <input id="fPlanets" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
-          <input id="nEarthLike" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
-          <input id="fLife" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
-          <input id="fIntelligent" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
-          <input id="rComm" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
-          <input id="L" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <input type="number" placeholder="7" id="rStar" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <input type="number" placeholder="1" id="fPlanets" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <input type="number" placeholder="1" id="nEarthLike" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <input type="number" placeholder="0.1" id="fLife" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <input type="number" placeholder="0.1" id="fIntelligent" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <input type="number" placeholder="0.1" id="rComm" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <input type="number" placeholder="10000" id="L" onFocus={ () => {this.onChangeInputFocus(document.getElementById("rStar"))}} />
+          <button onClick={() => {this.calculateCivs()}}>Submit</button>
         </div>
-        <Result calculateCivs={this.calculateCivs}/>
+        <Result numCivs={this.state.numCivs}/>
       </div>
     )
   }
