@@ -19,10 +19,26 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+
+/*Inputs*/
+input[type=range] {
+  width: 100%;
 }
 
 .drake-input {
   display: block;
+  margin: auto;
+}
+
+.inputs-wrap {
+  width: 50%;
+  margin: auto;
+}
+
+.result {
+  font-size: 2em;
 }
