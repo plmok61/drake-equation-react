@@ -12,6 +12,7 @@ class App extends Component {
           <h2>Drake Equation</h2>
         </div>
         <p className="App-intro">
+        How many aliens are there right now?
         </p>
         <Equation />
       </div>
