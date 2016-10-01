@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
-import InfoBox from './InfoBox';
+import './assets/App.css';
 import Result from './Result';
-import RStarInput from './RStarInput';
-import FPlanetsInput from './FPlanetsInput';
-import NEarthLikeInput from './NEarthLikeInput';
-import FLifeInput from './FLifeInput';
-import FIntellegentInput from './FIntellegentInput';
-import FCommInput from './FCommInput';
-import LCommInput from './LCommInput';
+import RStarInput from './drakeInputs/RStarInput';
+import FPlanetsInput from './drakeInputs/FPlanetsInput';
+import NEarthLikeInput from './drakeInputs/NEarthLikeInput';
+import FLifeInput from './drakeInputs/FLifeInput';
+import FIntellegentInput from './drakeInputs/FIntellegentInput';
+import FCommInput from './drakeInputs/FCommInput';
+import LCommInput from './drakeInputs/LCommInput';
 
 class Equation extends Component {
 
@@ -53,9 +52,6 @@ class Equation extends Component {
   render() {
     return (
       <div>
-        <div>
-          <InfoBox />
-        </div>
         <div className="inputs-wrap">
           <RStarInput rStar={this.state.rStar}
             handleInputChange={this.handleInputChange} />

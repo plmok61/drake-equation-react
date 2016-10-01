@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './galaxy-2.png';
-import './App.css';
+import logo from './assets/galaxy-2.png';
+import './assets/App.css';
 import Equation from './Equation';
+import InfoBox from './InfoBox';
 
 class App extends Component {
   render() {
@@ -12,9 +13,10 @@ class App extends Component {
           <h2>Drake Equation</h2>
         </div>
         <p className="App-intro">
-        How many aliens are there right now?
+        How many alien civilizations are there right now?
         </p>
         <Equation />
+        <InfoBox />
       </div>
     );
   }
