@@ -12,13 +12,6 @@ class Equation extends Component {
       numCivs: 70
     };
     this.calculateCivs = this.calculateCivs.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-
-  handleInputChange(id) {
-    
-    this.calculateCivs();
   }
 
   calculateCivs() {
