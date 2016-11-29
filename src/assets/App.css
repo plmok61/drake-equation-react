@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  font-family: 'Exo 2', sans-serif;
+}
+
+h1, h2, {
+  font-family: 'Audiowide', cursive;
 }
 
 .App-logo {
@@ -38,12 +43,20 @@ input[type=range] {
   margin: auto;
 }
 
+.input-value {
+  color: red;
+}
+
 .result {
   font-size: 2em;
   background-color: #d7d7d7;
   border-radius: 5px;
   color: #323232;
   margin: 20px 0 20px 0;
+}
+
+.result-value {
+  color: green;
 }
 
 .hide {
