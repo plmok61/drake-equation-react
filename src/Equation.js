@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import './assets/App.css';
 import Result from './Result';
-import RStarInput from './drakeInputs/RStarInput';
-import FPlanetsInput from './drakeInputs/FPlanetsInput';
-import NEarthLikeInput from './drakeInputs/NEarthLikeInput';
-import FLifeInput from './drakeInputs/FLifeInput';
-import FIntellegentInput from './drakeInputs/FIntellegentInput';
-import FCommInput from './drakeInputs/FCommInput';
-import LCommInput from './drakeInputs/LCommInput';
+import DrakeInput from './DrakeInput'
 
 class Equation extends Component {
 
@@ -53,22 +47,83 @@ class Equation extends Component {
     return (
       <div>
         <div className="inputs-wrap">
-          <RStarInput rStar={this.state.rStar}
-            handleInputChange={this.handleInputChange} />
-          <FPlanetsInput fPlanets={this.state.fPlanets}
-            handleInputChange={this.handleInputChange} />
-          <NEarthLikeInput nEarthLike={this.state.nEarthLike}
-            handleInputChange={this.handleInputChange} />
-          <FLifeInput fLife={this.state.fLife}
-            handleInputChange={this.handleInputChange} />
-          <FIntellegentInput fIntelligent={this.state.fIntelligent}
-            handleInputChange={this.handleInputChange} />
-          <FCommInput fComm={this.state.fComm}
-            handleInputChange={this.handleInputChange} />
-          <LCommInput lComm={this.state.lComm}
-            handleInputChange={this.handleInputChange} />
+          <DrakeInput 
+            inputId='rStar'
+            handleInputChange={this.handleInputChange}
+            min={1}
+            max={15}
+            step={1}
+            startValue={this.state.rStar}
+            descriptionText={'Rate of star formation: '}
+          />
+
+          <DrakeInput 
+            inputId='fPlanets'
+            handleInputChange={this.handleInputChange}
+            min={0}
+            max={1}
+            step={0.01}
+            startValue={this.state.fPlanets}
+            descriptionText={'Fraction of stars with planets: '}
+          />
+
+
+          <DrakeInput 
+            inputId='nEarthLike'
+            handleInputChange={this.handleInputChange}
+            min={0}
+            max={5}
+            step={0.1}
+            startValue={this.state.nEarthLike}
+            descriptionText={'Number of Earth-like planets per star: '}
+          />          
+
+          <DrakeInput 
+            inputId='fLife'
+            handleInputChange={this.handleInputChange}
+            min={0}
+            max={1}
+            step={0.01}
+            startValue={this.state.fLife}
+            descriptionText={'Fraction of planets with life: '}
+          />
+
+          <DrakeInput 
+            inputId='fIntelligent'
+            handleInputChange={this.handleInputChange}
+            min={0}
+            max={1}
+            step={0.01}
+            startValue={this.state.fIntelligent}
+            descriptionText={'Fraction in which intelligence arises: '}
+          /> 
+          
+          <DrakeInput 
+            inputId='fComm'
+            handleInputChange={this.handleInputChange}
+            min={0}
+            max={1}
+            step={0.01}
+            startValue={this.state.fComm}
+            descriptionText={'Fraction in which intellent beings communicate their existence: '}
+          /> 
+          
+          <DrakeInput 
+            inputId='lComm'
+            handleInputChange={this.handleInputChange}
+            min={1000}
+            max={1000000}
+            step={1000}
+            startValue={this.state.lComm}
+            descriptionText={'Number of years civilizations remain communicative: '}
+          />
+          
+          
         </div>
         <Result numCivs={this.state.numCivs}/>
+
+       
+
       </div>
     )
   }
