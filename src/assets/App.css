@@ -3,8 +3,8 @@
   font-family: 'Exo 2', sans-serif;
 }
 
-h1, h2, {
-  font-family: 'Audiowide', cursive;
+h1, h2 {
+  font-family: 'Audiowide', cursive !important;
 }
 
 .App-logo {
