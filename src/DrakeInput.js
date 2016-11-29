@@ -19,7 +19,7 @@ export default class DrakeInput extends Component {
   render () {
     return (
       <div>
-        <div>{this.props.descriptionText}{this.state.value}</div>
+        <h4>{this.props.descriptionText}{this.state.value}</h4>
         <input 
           className='drake-input'
           type='range'

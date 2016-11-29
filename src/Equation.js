@@ -43,7 +43,7 @@ class Equation extends Component {
         <div className="inputs-wrap">
 
           {
-            defaultValues.map(vals => (
+            defaultValues.map((vals, key) => (
               <DrakeInput 
                 inputId={vals.inputId}
                 calculateCivs={this.calculateCivs}
@@ -52,6 +52,7 @@ class Equation extends Component {
                 step={vals.step}
                 startValue={vals.startValue}
                 descriptionText={vals.descriptionText}
+                key={key}
               />
             ))
           }
