@@ -5,7 +5,7 @@ export default class DrakeInput extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: this.props.value
+      value: this.props.startValue
     }
     this.changeValue = this.changeValue.bind(this)
   }
@@ -24,14 +24,14 @@ export default class DrakeInput extends Component {
           className='drake-input'
           type='range'
           onChange={(value) => {
-            this.props.handleInputChange(this.props.inputId);
+            this.props.calculateCivs();
             this.changeValue(this.props.inputId) 
           }}
           id={this.props.inputId}
           min={this.props.min}
           max={this.props.max}
           step={this.props.step}
-          value={this.props.startValue}
+          value={this.state.value}
         />
       </div>
     )
