@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import logo from './assets/galaxy-2.png'
-import './assets/App.css'
+import logo from '../assets/galaxy-2.png'
+import '../assets/App.css'
 import { Col } from 'react-bootstrap'
 import Equation from './Equation'
 import InfoBox from './InfoBox'

@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import './assets/App.css';
-import Result from './Result';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import '../assets/App.css'
+import Result from './Result'
 import DrakeInput from './DrakeInput'
-import DefaultValues from './DefaultValues'
 
 class Equation extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-      numCivs: 70
-    };
     this.calculateCivs = this.calculateCivs.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('props ', this.props)
   }
 
   calculateCivs() {
@@ -21,40 +21,42 @@ class Equation extends Component {
     })
     var result = Math.round(values.reduce(function(result, i) {
       return result * i;
-    }));
-    this.setState({
-      numCivs: result
-    });
+    }))
+
+    this.props.dispatch({ type: 'UPDATE_NUM_CIVS', payload: result })
+
   }
 
   render() {
-
-    const defaultValues = DefaultValues
-
     return (
       <div>
         <div className="inputs-wrap">
 
           {
-            defaultValues.map((vals, key) => (
+            this.props.inputs.map(vals => (
               <DrakeInput 
                 inputId={vals.inputId}
                 calculateCivs={this.calculateCivs}
                 min={vals.min}
                 max={vals.max}
                 step={vals.step}
-                startValue={vals.startValue}
+                inputValue={vals.startValue}
                 descriptionText={vals.descriptionText}
-                key={key}
+                key={vals.inputId}
               />
             ))
           }
       
         </div>
-        <Result numCivs={this.state.numCivs}/>
+        <Result numCivs={this.props.numCivs}/>
       </div>
     )
   }
 }
 
-export default Equation;
+const mapStateToProps = store => ({
+  inputs: store.equation.inputs,
+  numCivs: store.equation.numCivs,
+})
+
+export default connect(mapStateToProps)(Equation)

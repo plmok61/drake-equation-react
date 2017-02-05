@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import './assets/App.css'
+import '../assets/App.css'
 
 export default class DrakeInput extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: this.props.startValue
+      value: this.props.inputValue
     }
     this.changeValue = this.changeValue.bind(this)
   }

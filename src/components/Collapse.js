@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './assets/App.css'
+import '../assets/App.css'
 
 export default class Collapse extends Component {
   constructor(props) {
