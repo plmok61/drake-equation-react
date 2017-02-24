@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/nodemon server.js --ignore src/",
     "test": "test",
     "build": "webpack",
     "dev": "webpack-dev-server --content-base public"
@@ -11,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.14.1",
     "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
