@@ -66,12 +66,12 @@ const initialValues = {
 function equationReducer(state = initialValues, action) {
   switch (action.type) {
     case 'UPDATE_NUM_CIVS':
-      return { ...state, numCivs: action.payload }
+      return Object.assign({}, state, { numCivs: action.payload });
     default:
-      return state
+      return state;
   }
 }
 
 export default combineReducers({
-  equation: equationReducer
-})
+  equation: equationReducer,
+});
