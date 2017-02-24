@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import '../assets/App.css'
 import Result from './Result'
 import DrakeInput from './DrakeInput'
+import { updateNumCivs } from '../actions/equationActions'
 
 class Equation extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Equation extends Component {
       return result * i;
     }))
 
-    this.props.dispatch({ type: 'UPDATE_NUM_CIVS', payload: result })
+    this.props.dispatch(updateNumCivs(result))
 
   }
 
