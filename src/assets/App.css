@@ -3,7 +3,7 @@
   font-family: 'Exo 2', sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Audiowide', cursive !important;
 }
 
@@ -53,6 +53,7 @@ input[type=range] {
   border-radius: 5px;
   color: #323232;
   margin: 20px 0 20px 0;
+  padding: 5px;
 }
 
 .result-value {

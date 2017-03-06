@@ -12,7 +12,7 @@ class Equation extends Component {
   }
 
   componentDidMount() {
-    console.log('props ', this.props);
+    this.calculateCivs();
   }
 
   calculateCivs() {
@@ -26,11 +26,11 @@ class Equation extends Component {
   render() {
     return (
       <div>
-        <Result numCivs={this.props.numCivs}/>
+        <Result numCivs={this.props.numCivs} />
         <div className="inputs-wrap">
           {
             this.props.inputs.map(vals => (
-              <DrakeInput 
+              <DrakeInput
                 inputId={vals.inputId}
                 calculateCivs={this.calculateCivs}
                 min={vals.min}

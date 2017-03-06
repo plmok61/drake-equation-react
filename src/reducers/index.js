@@ -7,7 +7,7 @@ const initialValues = {
       min: 1,
       max: 15,
       step: 1,
-      startValue: 7,
+      startValue: 3,
       descriptionText: 'Rate of star formation: ',
     },
     {
@@ -23,7 +23,7 @@ const initialValues = {
       min: 0,
       max: 5,
       step: 0.1,
-      startValue: 1,
+      startValue: 0.4,
       descriptionText: 'Number of Earth-like planets per star: ',
     },
     {
@@ -31,7 +31,7 @@ const initialValues = {
       min: 0,
       max: 1,
       step: 0.01,
-      startValue: 0.1,
+      startValue: 0.01,
       descriptionText: 'Fraction of planets with life: ',
     },
     {
@@ -40,7 +40,7 @@ const initialValues = {
       max: 1,
       step: 0.01,
       startValue: 0.1,
-      descriptionText: 'Fraction in which intelligence arises: ',
+      descriptionText: 'Fraction where intelligence arises: ',
     },
     {
       inputId: 'fComm',
@@ -48,7 +48,7 @@ const initialValues = {
       max: 1,
       step: 0.01,
       startValue: 0.1,
-      descriptionText: 'Fraction in which intellent beings communicate their existence: ',
+      descriptionText: 'Fraction that communicate their existence: ',
     },
     {
       inputId: 'lComm',
@@ -56,10 +56,10 @@ const initialValues = {
       max: 1000000,
       step: 1000,
       startValue: 10000,
-      descriptionText: 'Number of years civilizations remain communicative: ',
+      descriptionText: 'Number of years communicative: ',
     },
   ],
-  numCivs: 70,
+  numCivs: 0,
 };
 
 
