@@ -1,47 +1,34 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import '../assets/App.css';
 
-export default class DrakeInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.inputValue,
-    };
-    this.changeValue = this.changeValue.bind(this);
-  }
-
-  changeValue(id) {
-    this.setState({ value: document.getElementById(id).value });
-  }
-
-  render() {
-    return (
-      <div>
-        <h4>{this.props.descriptionText}<span className="input-value">{this.state.value}</span></h4>
-        <input
-          className="drake-input"
-          type="range"
-          onChange={() => {
-            this.props.calculateCivs();
-            this.changeValue(this.props.inputId);
-          }}
-          id={this.props.inputId}
-          min={this.props.min}
-          max={this.props.max}
-          step={this.props.step}
-          value={this.state.value}
-        />
-      </div>
-    );
-  }
-}
+const DrakeInput = props => (
+  <div>
+    <h4>{props.descriptionText}<span className="input-value">{props.inputs[props.inputId]}</span></h4>
+    <input
+      className="drake-input"
+      type="range"
+      onChange={(e) => {
+        props.updateInput(e.target.value, props.inputId);
+      }}
+      id={props.inputId}
+      min={props.min}
+      max={props.max}
+      step={props.step}
+      value={props.inputs[props.inputId]}
+    />
+  </div>
+);
 
 DrakeInput.propTypes = {
-  calculateCivs: PropTypes.func.isRequired,
-  inputValue: PropTypes.number.isRequired,
+  inputs: PropTypes.shape({
+    inputId: PropTypes.string,
+  }).isRequired,
+  updateInput: PropTypes.func.isRequired,
   descriptionText: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   step: PropTypes.number.isRequired,
 };
+
+export default DrakeInput;
